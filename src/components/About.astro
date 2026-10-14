@@ -2,81 +2,179 @@
 import { resumeData } from '../data/resume';
 ---
 
-<section id="about" class="py-24 border-t border-neutral-900 relative">
+<section id="about" class="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden">
+  <!-- Ambient background glow -->
+  <div class="absolute top-12 left-1/4 -translate-x-1/2 w-[500px] h-[280px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+
   <div class="max-w-6xl mx-auto px-6">
-    
-    <!-- Section Heading -->
-    <div class="section-heading mb-16">
-      <div class="flex items-center gap-3 text-xs font-mono text-blue-400 mb-2">
-        <span>01 //</span>
-        <span class="tracking-widest uppercase">About Me</span>
-      </div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-        Engineered for clarity, performance & impact.
-      </h2>
-    </div>
-
-    <!-- Main Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
       
-      <!-- Narrative Bio -->
-      <div class="lg:col-span-7 space-y-6 text-neutral-300 text-base sm:text-lg leading-relaxed">
-        {resumeData.about.summary.map((para) => (
-          <p class="text-neutral-400 font-normal">
-            {para}
-          </p>
-        ))}
+      <!-- Left Column: Name, Description & CTAs -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left">
+        
+        <!-- Status Pill -->
+        <div class="hero-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300 mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>{resumeData.status} • {resumeData.location}</span>
+        </div>
 
-        <div class="pt-4 flex flex-wrap gap-3">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>Fast Prototyping</span>
-          </div>
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
-            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-            <span>Mathematical Grounding</span>
-          </div>
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
-            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-            <span>Clean Minimal Architecture</span>
-          </div>
+        <!-- Name: Clean, tightly tracked, left-aligned -->
+        <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-3 text-left">
+          {resumeData.name}
+        </h1>
+
+        <!-- Role -->
+        <p class="hero-role text-xl sm:text-2xl font-semibold text-blue-400 mb-6 tracking-tight text-left font-mono">
+          {resumeData.title}
+        </p>
+
+        <!-- Description: Combined Bio & Experience Overview -->
+        <div class="hero-bio space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed mb-8 text-left">
+          <p class="text-neutral-300">
+            {resumeData.bio}
+          </p>
+          <p class="text-neutral-400">
+            My experience centers on practical data systems and applied machine learning: from building convolutional neural networks (CNNs) for medical lesion classification in TensorFlow/OpenCV, to deploying interactive, real-time analytics platforms in Streamlit.
+          </p>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="hero-cta flex flex-wrap items-center gap-3.5 mb-10">
+          <a
+            href="#projects"
+            class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs sm:text-sm transition-all duration-200 shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 flex items-center gap-2"
+            data-magnetic="true"
+            data-magnetic-strength="0.2"
+          >
+            <span>View Projects</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+
+          <a
+            href="/resume.pdf"
+            download="Swetansh_Singh_Resume.pdf"
+            class="px-5 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-200 hover:text-white font-medium text-xs sm:text-sm border border-neutral-800 hover:border-neutral-700 transition-all duration-200 flex items-center gap-2 font-mono"
+            data-magnetic="true"
+            data-magnetic-strength="0.2"
+          >
+            <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume</span>
+          </a>
+
+          <a
+            href={resumeData.contacts.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-white border border-neutral-800 transition-colors"
+            aria-label="GitHub Profile"
+            data-magnetic="true"
+            data-magnetic-strength="0.2"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Metrics Row -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-5 border-t border-neutral-900">
+          {resumeData.about.stats.map((stat) => (
+            <div class="hero-stats-item flex flex-col text-left">
+              <span class="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
+                {stat.value}
+              </span>
+              <span class="text-xs text-neutral-400 font-medium mt-0.5">
+                {stat.label}
+              </span>
+              {stat.detail && (
+                <span class="text-[11px] text-neutral-500 font-mono mt-0.5">
+                  {stat.detail}
+                </span>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
-      <!-- Feature Highlight Pillars -->
-      <div class="lg:col-span-5 grid grid-cols-1 gap-4">
-        <div class="p-6 rounded-xl bg-neutral-900/50 border border-neutral-800/80 hover:border-neutral-700 transition-colors" data-tilt="true">
-          <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-mono text-sm mb-4">
-            01
+      <!-- Right Column: Interactive Terminal Graphic -->
+      <div class="lg:col-span-5 flex justify-center w-full">
+        <div class="w-full max-w-md rounded-xl bg-[#0d0d0d] border border-neutral-800 shadow-2xl overflow-hidden font-mono text-xs" data-tilt="true">
+          <!-- Terminal Header -->
+          <div class="px-4 py-3 bg-[#141414] border-b border-neutral-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+            </div>
+            <span class="text-neutral-400 text-[11px]">swetansh@workstation:~</span>
+            <div class="w-8"></div>
           </div>
-          <h3 class="text-base font-semibold text-white mb-2">Data Science & Vision</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">
-            Training neural networks, analyzing high-dimensional datasets, and engineering predictive workflows that solve concrete diagnostic or commercial challenges.
-          </p>
-        </div>
 
-        <div class="p-6 rounded-xl bg-neutral-900/50 border border-neutral-800/80 hover:border-neutral-700 transition-colors" data-tilt="true">
-          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-mono text-sm mb-4">
-            02
-          </div>
-          <h3 class="text-base font-semibold text-white mb-2">Automated Dashboards</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">
-            Building intuitive interfaces with Streamlit and modern tooling that empower stakeholders to explore datasets with zero SQL friction.
-          </p>
-        </div>
+          <!-- Terminal Content -->
+          <div class="p-5 flex flex-col gap-4 text-neutral-300 leading-relaxed text-left">
+            <div>
+              <div class="flex items-center gap-2 text-neutral-400">
+                <span class="text-blue-400">➜</span>
+                <span class="text-neutral-500">~</span>
+                <span class="text-emerald-400 font-bold">whoami</span>
+              </div>
+              <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800 text-[11px] sm:text-xs">
+                Swetansh Singh — Python & Data Science Developer
+              </p>
+            </div>
 
-        <div class="p-6 rounded-xl bg-neutral-900/50 border border-neutral-800/80 hover:border-neutral-700 transition-colors" data-tilt="true">
-          <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 font-mono text-sm mb-4">
-            03
+            <div>
+              <div class="flex items-center gap-2 text-neutral-400">
+                <span class="text-blue-400">➜</span>
+                <span class="text-neutral-500">~</span>
+                <span class="text-emerald-400 font-bold">cat education.txt</span>
+              </div>
+              <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800 text-[11px] sm:text-xs">
+                B.Tech in CSE (Data Science) @ NSHM Knowledge Campus<br/>
+                <span class="text-blue-400 font-semibold">CGPA: 7.37</span> (Sem 1–6)
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 text-neutral-400">
+                <span class="text-blue-400">➜</span>
+                <span class="text-neutral-500">~</span>
+                <span class="text-emerald-400 font-bold">cat focus.txt</span>
+              </div>
+              <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800 text-[11px] sm:text-xs">
+                • CNNs & Computer Vision (TensorFlow / OpenCV)<br/>
+                • Real-time KPI Dashboards (Streamlit & Plotly)<br/>
+                • Exploratory Data Analysis & Feature Engineering
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 text-neutral-400">
+                <span class="text-blue-400">➜</span>
+                <span class="text-neutral-500">~</span>
+                <span class="text-emerald-400 font-bold">git status</span>
+              </div>
+              <div class="text-neutral-400 mt-1 pl-4 border-l border-neutral-800 text-[11px]">
+                <span class="text-emerald-400">✔</span> On branch <span class="text-blue-400">main</span> • Ready for opportunities
+              </div>
+            </div>
+
+            <!-- Blinking cursor -->
+            <div class="flex items-center gap-2 text-neutral-400 pt-1">
+              <span class="text-blue-400">➜</span>
+              <span class="text-neutral-500">~</span>
+              <span class="inline-block w-2 h-4 bg-blue-400 animate-pulse"></span>
+            </div>
           </div>
-          <h3 class="text-base font-semibold text-white mb-2">Craft & Clean Code</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">
-            Obsessive focus on readable structure, type safety, low bundle size, and animations that enhance rather than distract.
-          </p>
         </div>
       </div>
 
     </div>
   </div>
 </section>
-
