@@ -11,50 +11,48 @@ export const projectsConfig = {
   githubUsername: 'Swetansh-Singh',
   exclude: [] as string[],
   overrides: {
-    'Sales-Analysis-streamlitapp': {
-      title: 'Sales Analytics Streamlit App',
-      description: 'Interactive analytics dashboard transforming raw sales CSVs into executive KPIs, time-series trends, and automated narrative insights.',
-      featured: true,
-      demoUrl: 'https://github.com/Swetansh-Singh/Sales-Analysis-streamlitapp',
-      tags: ['Streamlit', 'Python', 'Pandas', 'Plotly', 'Data Viz'],
-      highlights: [
-        'Instant KPI cards and dynamic sales breakdown',
-        'Time-series aggregation and seasonal trend detection',
-        'Zero-SQL interface designed for non-technical stakeholders'
-      ],
-    },
     'Skin-Cancer-Detection': {
-      title: 'Skin Lesion Classifier & Cancer Detection',
-      description: 'Computer vision and deep learning pipeline for early classification of dermoscopic skin lesions to support diagnostic triage.',
+      title: 'Skin Cancer Detection & Lesion Classifier',
+      description: 'Convolutional neural network (CNN) trained with TensorFlow/Keras and OpenCV to classify dermoscopic lesion images into malignant vs. benign categories with ROC-AUC validation.',
       featured: true,
       demoUrl: 'https://github.com/Swetansh-Singh/Skin-Cancer-Detection',
-      tags: ['Deep Learning', 'Computer Vision', 'PyTorch', 'TypeScript', 'Healthcare AI'],
+      tags: ['TensorFlow', 'OpenCV', 'Scikit-Learn', 'CNN', 'Computer Vision'],
       highlights: [
-        'Multi-class lesion classification with high sensitivity',
-        'Data augmentation and class imbalance handling',
-        'Modern client interface for image inference preview'
+        'Built a CNN to classify lesion images into malignant vs. benign with ROC-AUC validation',
+        'Preprocessed and augmented image data using OpenCV to handle class imbalances',
       ],
     },
-    'Netflix-EDA': {
-      title: 'Netflix Content Ecosystem EDA',
-      description: 'Comprehensive exploratory data analysis examining 8,000+ titles across genres, country production dynamics, and release schedules.',
-      featured: false,
-      demoUrl: 'https://github.com/Swetansh-Singh/Netflix-EDA',
-      tags: ['Python', 'EDA', 'Data Wrangling', 'Matplotlib', 'Seaborn'],
+    'Sales-Analysis-streamlitapp': {
+      title: 'Sales Analysis Interactive Dashboard',
+      description: 'Deployed a real-time sales tracking web app with dynamic multi-filter KPI dashboards, interactive charts, and accelerated query transformations.',
+      featured: true,
+      demoUrl: 'https://github.com/Swetansh-Singh/Sales-Analysis-streamlitapp',
+      tags: ['Streamlit', 'Plotly', 'Pandas', 'Python', 'KPI Dashboards'],
       highlights: [
-        'Content growth patterns pre- and post-international expansion',
-        'Genre clusters and cross-national co-production analysis'
+        'Deployed a real-time sales tracking web app with dynamic multi-filter KPI dashboards',
+        'Optimized data-caching to accelerate chart rendering and large dataset queries',
       ],
     },
     'Amazon-Sales-EDA': {
-      title: 'Amazon E-Commerce Sales Insights',
-      description: 'End-to-end cleaning and exploratory analysis of Amazon India sales data, analyzing fulfillment channels, category margins, and geographic clusters.',
+      title: 'Amazon Sales Analysis & Forecasting',
+      description: 'Granular exploratory data analysis on transaction records to isolate peak demand and margin trends, with currency normalization and delivery bottleneck diagnosis.',
       featured: false,
       demoUrl: 'https://github.com/Swetansh-Singh/Amazon-Sales-EDA',
-      tags: ['Python', 'Pandas', 'E-commerce Analytics', 'Jupyter'],
+      tags: ['Pandas', 'Matplotlib', 'Seaborn', 'EDA', 'Forecasting'],
       highlights: [
-        'Fulfillment efficiency comparison (FBA vs merchant)',
-        'State-wise order distribution and basket size analytics'
+        'Performed EDA on transaction records to isolate peak demand and margin trends',
+        'Cleaned raw currency data and identified root causes of courier delivery cancellations',
+      ],
+    },
+    'Netflix-EDA': {
+      title: 'Netflix Content Strategy & Catalog EDA',
+      description: 'Comprehensive evaluation of streaming catalog metadata to analyze shifting trends between TV shows and movies, production volume, and runtime distributions.',
+      featured: false,
+      demoUrl: 'https://github.com/Swetansh-Singh/Netflix-EDA',
+      tags: ['Pandas', 'Seaborn', 'Matplotlib', 'EDA', 'Python'],
+      highlights: [
+        'Analyzed catalog metadata to evaluate shifting trends between TV shows and movies',
+        'Visualized country-wise production volume and runtime distributions across genres',
       ],
     },
   } as Record<string, ProjectOverride>,

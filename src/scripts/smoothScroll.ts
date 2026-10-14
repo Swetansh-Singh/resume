@@ -38,3 +38,4 @@ export function initSmoothScroll(): Lenis | null {
 
   return lenis;
 }
+

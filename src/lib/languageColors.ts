@@ -20,3 +20,4 @@ export function getLanguageColor(lang?: string | null): string {
   if (!lang) return '#9ca3af';
   return languageColors[lang] || '#3b82f6';
 }
+

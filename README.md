@@ -77,3 +77,4 @@ Static output will be placed in the `dist/` directory, ready to deploy.
 1. Replace `public/resume.pdf` with your actual resume PDF.
 2. Update `src/data/resume.ts` with your specific dates, achievements, or contact details.
 3. Repositories will automatically synchronize from `https://github.com/Swetansh-Singh` on every build.
+

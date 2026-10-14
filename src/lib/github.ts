@@ -121,3 +121,4 @@ export async function getProjects(): Promise<ProjectItem[]> {
     return b.stars - a.stars;
   });
 }
+

@@ -99,3 +99,4 @@ export function initCursorEffects() {
     card.addEventListener('mouseleave', handleLeave);
   });
 }
+
