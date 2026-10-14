@@ -6,7 +6,15 @@ import { resumeData } from '../data/resume';
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
     <!-- Logo / Monogram -->
     <a href="#about" class="group flex items-center gap-2.5 text-neutral-200 hover:text-white transition-colors" data-magnetic="true" data-magnetic-strength="0.15">
-      <div class="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-700/80 flex items-center justify-center font-mono text-xs font-bold text-blue-400 group-hover:border-blue-500/60 transition-colors shadow-sm">
+      <img
+        src="/logo.jpeg"
+        alt={resumeData.name}
+        id="nav-logo-img"
+        class="w-8 h-8 rounded-lg object-cover border border-neutral-700/80 group-hover:border-blue-500/60 transition-colors shadow-sm hidden"
+        onload="this.classList.remove('hidden'); document.getElementById('nav-logo-fallback')?.classList.add('hidden');"
+        onerror="if (!this.dataset.triedJpg) { this.dataset.triedJpg = 'true'; this.src = '/logo.jpg'; } else { this.classList.add('hidden'); document.getElementById('nav-logo-fallback')?.classList.remove('hidden'); }"
+      />
+      <div id="nav-logo-fallback" class="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-700/80 flex items-center justify-center font-mono text-xs font-bold text-blue-400 group-hover:border-blue-500/60 transition-colors shadow-sm">
         SS
       </div>
       <span class="font-mono text-sm tracking-tight font-medium text-neutral-300 group-hover:text-white">
