@@ -1,0 +1,29 @@
+---
+import { resumeData } from '../data/resume';
+const year = new Date().getFullYear();
+---
+
+<footer class="py-12 border-t border-neutral-900 bg-[#060606] text-neutral-500 text-xs font-mono">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+    
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+      <span>Designed & built by {resumeData.name} © {year}</span>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <span class="text-neutral-600">Built with Astro, Tailwind & GSAP</span>
+      
+      <!-- Back to top -->
+      <a
+        href="#hero"
+        class="text-neutral-400 hover:text-white transition-colors flex items-center gap-1 group"
+        aria-label="Scroll back to top"
+      >
+        <span>Top</span>
+        <span class="group-hover:-translate-y-0.5 transition-transform duration-200">↑</span>
+      </a>
+    </div>
+
+  </div>
+</footer>

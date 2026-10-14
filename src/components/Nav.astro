@@ -1,0 +1,91 @@
+---
+import { resumeData } from '../data/resume';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#080808]/80 border-b border-neutral-800/60">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- Logo / Monogram -->
+    <a href="#hero" class="group flex items-center gap-2.5 text-neutral-200 hover:text-white transition-colors" data-magnetic="true" data-magnetic-strength="0.15">
+      <div class="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-700/80 flex items-center justify-center font-mono text-xs font-bold text-blue-400 group-hover:border-blue-500/60 transition-colors shadow-sm">
+        SS
+      </div>
+      <span class="font-mono text-sm tracking-tight font-medium text-neutral-300 group-hover:text-white">
+        swetansh.dev
+      </span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#about" class="nav-link text-neutral-400 hover:text-neutral-100 transition-colors">About</a>
+      <a href="#experience" class="nav-link text-neutral-400 hover:text-neutral-100 transition-colors">Experience</a>
+      <a href="#projects" class="nav-link text-neutral-400 hover:text-neutral-100 transition-colors">Projects</a>
+      <a href="#skills" class="nav-link text-neutral-400 hover:text-neutral-100 transition-colors">Skills</a>
+      <a href="#contact" class="nav-link text-neutral-400 hover:text-neutral-100 transition-colors">Contact</a>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-3">
+      <!-- Status pill -->
+      <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900/90 border border-neutral-800 text-xs font-mono text-neutral-300">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span>{resumeData.status}</span>
+      </div>
+
+      <!-- Resume Button -->
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        download
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 border border-blue-500/30 hover:border-blue-500/60 text-xs font-medium font-mono transition-all duration-200"
+        data-magnetic="true"
+        data-magnetic-strength="0.2"
+      >
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Resume</span>
+      </a>
+
+      <!-- Mobile menu toggle -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-lg text-neutral-400 hover:text-white bg-neutral-900 border border-neutral-800"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-neutral-800 bg-[#080808]/95 px-6 py-4">
+    <div class="flex flex-col gap-3 text-sm">
+      <a href="#about" class="text-neutral-400 hover:text-white py-1">About</a>
+      <a href="#experience" class="text-neutral-400 hover:text-white py-1">Experience</a>
+      <a href="#projects" class="text-neutral-400 hover:text-white py-1">Projects</a>
+      <a href="#skills" class="text-neutral-400 hover:text-white py-1">Skills</a>
+      <a href="#contact" class="text-neutral-400 hover:text-white py-1">Contact</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => menu.classList.add('hidden'));
+    });
+  }
+</script>

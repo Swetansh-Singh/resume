@@ -1,0 +1,169 @@
+---
+import { resumeData } from '../data/resume';
+
+// Split name characters for staggered animation
+const nameChars = resumeData.name.split('');
+---
+
+<section id="hero" class="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+  <!-- Subtle ambient glow background -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Copy & Actions -->
+      <div class="lg:col-span-7 flex flex-col items-start">
+        <!-- Sub-badge -->
+        <div class="hero-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-400 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+          <span>{resumeData.status} • Based in {resumeData.location}</span>
+        </div>
+
+        <!-- Staggered Name -->
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-4 flex flex-wrap" aria-label={resumeData.name}>
+          {nameChars.map((char) => (
+            <span class="hero-title-char inline-block whitespace-pre">
+              {char}
+            </span>
+          ))}
+        </h1>
+
+        <!-- Role & Subtitle -->
+        <p class="hero-role text-xl sm:text-2xl font-medium text-neutral-300 mb-3 tracking-tight">
+          {resumeData.title}
+        </p>
+
+        <p class="hero-bio text-base sm:text-lg text-neutral-400 max-w-xl mb-8 leading-relaxed">
+          {resumeData.subtitle}
+        </p>
+
+        <!-- CTA Buttons with Magnetic Pull -->
+        <div class="hero-cta flex flex-wrap items-center gap-4 mb-12">
+          <a
+            href="#projects"
+            class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 flex items-center gap-2"
+            data-magnetic="true"
+            data-magnetic-strength="0.2"
+          >
+            <span>Explore Projects</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+
+          <a
+            href="/resume.pdf"
+            download
+            class="px-6 py-3 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-200 hover:text-white font-medium text-sm border border-neutral-800 hover:border-neutral-700 transition-all duration-200 flex items-center gap-2"
+            data-magnetic="true"
+            data-magnetic-strength="0.2"
+          >
+            <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume</span>
+          </a>
+
+          <a
+            href={resumeData.contacts.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-3 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-white border border-neutral-800 transition-colors"
+            aria-label="GitHub Profile"
+            data-magnetic="true"
+            data-magnetic-strength="0.2"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Quick metrics row -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-6 border-t border-neutral-900">
+          {resumeData.about.stats.map((stat) => (
+            <div class="hero-stats-item flex flex-col">
+              <span class="text-2xl sm:text-3xl font-bold font-mono text-white tracking-tight">
+                {stat.value}
+              </span>
+              <span class="text-xs text-neutral-400 font-medium mt-0.5">
+                {stat.label}
+              </span>
+              {stat.detail && (
+                <span class="text-[11px] text-neutral-500 font-mono mt-0.5">
+                  {stat.detail}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Terminal Graphic -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-md rounded-xl bg-[#0d0d0d] border border-neutral-800 shadow-2xl overflow-hidden font-mono text-xs" data-tilt="true">
+          <!-- Terminal Header -->
+          <div class="px-4 py-3 bg-[#141414] border-b border-neutral-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+            </div>
+            <span class="text-neutral-400 text-[11px]">swetansh@workstation:~</span>
+            <div class="w-8"></div>
+          </div>
+
+          <!-- Terminal Body -->
+          <div class="p-5 flex flex-col gap-4 text-neutral-300 leading-relaxed">
+            <div>
+              <div class="flex items-center gap-2 text-neutral-400">
+                <span class="text-blue-400">➜</span>
+                <span class="text-neutral-500">~</span>
+                <span class="text-emerald-400 font-bold">whoami</span>
+              </div>
+              <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800">
+                Swetansh Singh — Data Science & Software Engineer
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 text-neutral-400">
+                <span class="text-blue-400">➜</span>
+                <span class="text-neutral-500">~</span>
+                <span class="text-emerald-400 font-bold">cat focus.txt</span>
+              </div>
+              <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800">
+                • Computer Vision & Deep Learning (PyTorch)<br/>
+                • Real-time Analytics Dashboards (Streamlit)<br/>
+                • High-Performance Clean Web Architecture
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 text-neutral-400">
+                <span class="text-blue-400">➜</span>
+                <span class="text-neutral-500">~</span>
+                <span class="text-emerald-400 font-bold">git status</span>
+              </div>
+              <div class="text-neutral-400 mt-1 pl-4 border-l border-neutral-800">
+                <span class="text-emerald-400">✔</span> On branch <span class="text-blue-400">main</span><br/>
+                <span class="text-neutral-400">Status:</span> "Geeked and locked in"
+              </div>
+            </div>
+
+            <!-- Blinking cursor line -->
+            <div class="flex items-center gap-2 text-neutral-400 pt-1">
+              <span class="text-blue-400">➜</span>
+              <span class="text-neutral-500">~</span>
+              <span class="inline-block w-2 h-4 bg-blue-400 animate-pulse"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

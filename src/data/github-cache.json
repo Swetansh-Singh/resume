@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1344579244,
+    "name": "Sales-Analysis-streamlitapp",
+    "fullName": "Swetansh-Singh/Sales-Analysis-streamlitapp",
+    "htmlUrl": "https://github.com/Swetansh-Singh/Sales-Analysis-streamlitapp",
+    "description": "Beginner-friendly sales analytics dashboard built with Streamlit — upload a CSV and get instant KPIs, trends, and plain-English insights. No SQL, no pivot tables.",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "updatedAt": "2025-02-15T00:00:00Z",
+    "topics": ["streamlit", "sales-analysis", "python", "data-visualization"],
+    "homepage": ""
+  },
+  {
+    "id": 1357939448,
+    "name": "Skin-Cancer-Detection",
+    "fullName": "Swetansh-Singh/Skin-Cancer-Detection",
+    "htmlUrl": "https://github.com/Swetansh-Singh/Skin-Cancer-Detection",
+    "description": "Deep learning and computer vision pipeline for early lesion classification and automated melanoma screening.",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "updatedAt": "2025-02-20T00:00:00Z",
+    "topics": ["deep-learning", "computer-vision", "healthcare", "ai"],
+    "homepage": ""
+  },
+  {
+    "id": 1310671492,
+    "name": "Netflix-EDA",
+    "fullName": "Swetansh-Singh/Netflix-EDA",
+    "htmlUrl": "https://github.com/Swetansh-Singh/Netflix-EDA",
+    "description": "Clean and analyze the Netflix Titles dataset to uncover patterns in genres, countries, ratings, and release/addition trends with clear visualizations.",
+    "stars": 0,
+    "forks": 0,
+    "language": "Jupyter Notebook",
+    "updatedAt": "2025-01-10T00:00:00Z",
+    "topics": ["eda", "netflix", "data-analysis", "python"],
+    "homepage": ""
+  },
+  {
+    "id": 1311689311,
+    "name": "Amazon-Sales-EDA",
+    "fullName": "Swetansh-Singh/Amazon-Sales-EDA",
+    "htmlUrl": "https://github.com/Swetansh-Singh/Amazon-Sales-EDA",
+    "description": "Cleans a raw Amazon India sales export and explores order status, sales by category, trends over time, and regional purchasing distributions.",
+    "stars": 0,
+    "forks": 0,
+    "language": "Jupyter Notebook",
+    "updatedAt": "2025-01-15T00:00:00Z",
+    "topics": ["amazon-sales", "eda", "python", "ecommerce"],
+    "homepage": ""
+  }
+]

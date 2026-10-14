@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+import { resumeData } from '../data/resume';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${resumeData.name} — ${resumeData.title}`,
+  description = resumeData.subtitle,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={resumeData.name} />
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={resumeData.name} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23080808'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='52' font-weight='bold' fill='%233b82f6'>S</text></svg>" />
+  </head>
+  <body class="bg-[#080808] text-neutral-100 antialiased selection:bg-blue-500/30 selection:text-white relative min-h-screen">
+    
+    <!-- Film grain noise overlay -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Ambient cursor glow blob for desktop -->
+    <div
+      id="cursor-glow"
+      class="pointer-events-none fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-blue-500/10 blur-[100px] z-30 transition-opacity duration-300 opacity-0 hidden md:block"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Global dot grid pattern -->
+    <div class="absolute inset-0 bg-grid opacity-30 pointer-events-none -z-10" aria-hidden="true"></div>
+
+    <slot />
+
+    <!-- Client-side animation & interaction bootstrap -->
+    <script>
+      import { initSmoothScroll } from '../scripts/smoothScroll';
+      import { initAnimations } from '../scripts/animations';
+      import { initCursorEffects } from '../scripts/cursor';
+
+      // Initialize after DOM is ready
+      document.addEventListener('DOMContentLoaded', () => {
+        initSmoothScroll();
+        initCursorEffects();
+        initAnimations();
+      });
+    </script>
+  </body>
+</html>
