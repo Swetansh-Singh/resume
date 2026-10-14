@@ -2,19 +2,21 @@
 import { resumeData } from '../data/resume';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#080808]/80 border-b border-neutral-800/60">
+<header
+  id="main-nav"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out backdrop-blur-md bg-[#080808]/85 border-b border-neutral-800/60 opacity-0 -translate-y-full pointer-events-none shadow-lg shadow-black/40"
+>
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
     <!-- Logo / Monogram -->
     <a href="#about" class="group flex items-center gap-2.5 text-neutral-200 hover:text-white transition-colors" data-magnetic="true" data-magnetic-strength="0.15">
       <img
-        src="/logo.jpeg"
+        src="/logo.jpg"
         alt={resumeData.name}
         id="nav-logo-img"
-        class="w-8 h-8 rounded-lg object-cover border border-neutral-700/80 group-hover:border-blue-500/60 transition-colors shadow-sm hidden"
-        onload="this.classList.remove('hidden'); document.getElementById('nav-logo-fallback')?.classList.add('hidden');"
-        onerror="if (!this.dataset.triedJpg) { this.dataset.triedJpg = 'true'; this.src = '/logo.jpg'; } else { this.classList.add('hidden'); document.getElementById('nav-logo-fallback')?.classList.remove('hidden'); }"
+        class="w-8 h-8 rounded-lg object-cover border border-neutral-700/80 group-hover:border-blue-500/60 transition-colors shadow-sm"
+        onerror="this.style.display='none'; document.getElementById('nav-logo-fallback')?.classList.remove('hidden');"
       />
-      <div id="nav-logo-fallback" class="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-700/80 flex items-center justify-center font-mono text-xs font-bold text-blue-400 group-hover:border-blue-500/60 transition-colors shadow-sm">
+      <div id="nav-logo-fallback" class="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-700/80 flex items-center justify-center font-mono text-xs font-bold text-blue-400 group-hover:border-blue-500/60 transition-colors shadow-sm hidden">
         SS
       </div>
       <span class="font-mono text-sm tracking-tight font-medium text-neutral-300 group-hover:text-white">
@@ -47,7 +49,7 @@ import { resumeData } from '../data/resume';
         href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        download
+        download="Swetansh_Singh_Resume.pdf"
         class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 border border-blue-500/30 hover:border-blue-500/60 text-xs font-medium font-mono transition-all duration-200"
         data-magnetic="true"
         data-magnetic-strength="0.2"
@@ -86,15 +88,39 @@ import { resumeData } from '../data/resume';
 </header>
 
 <script>
+  const nav = document.getElementById('main-nav');
+  const projectsSection = document.getElementById('projects');
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+
+  // Show navigation bar only when scrolled down to or past the Projects section
+  function updateNavVisibility() {
+    if (!nav) return;
+    const scrollY = window.scrollY;
+    const triggerOffset = projectsSection ? projectsSection.offsetTop - 80 : 350;
+
+    if (scrollY >= triggerOffset) {
+      nav.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+      nav.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+    } else {
+      nav.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+      nav.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateNavVisibility, { passive: true });
+  window.addEventListener('resize', updateNavVisibility, { passive: true });
+  updateNavVisibility();
+
   if (btn && menu) {
     btn.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
-    menu.querySelectorAll('a').forEach(a => {
+    menu.querySelectorAll('a').forEach((a) => {
       a.addEventListener('click', () => menu.classList.add('hidden'));
     });
   }
 </script>
-
