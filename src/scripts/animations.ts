@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function initAnimations() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     // If reduced motion is preferred, ensure all animated targets are immediately visible
-    gsap.set('[data-animate], .hero-title, .hero-role, .hero-bio, .hero-cta, .hero-stats-item, .project-card, .section-heading', {
+    gsap.set('[data-animate], .hero-title, .hero-role, .hero-bio, .hero-cta, .project-card, .section-heading', {
       opacity: 1,
       y: 0,
       clearProps: 'all',
@@ -45,12 +45,6 @@ export function initAnimations() {
       '.hero-cta',
       { opacity: 0, y: 15 },
       { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
-      '-=0.3'
-    )
-    .fromTo(
-      '.hero-stats-item',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.5, stagger: 0.06 },
       '-=0.3'
     );
 

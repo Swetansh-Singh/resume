@@ -121,7 +121,6 @@ export const resumeData: ResumeData = {
       institution: 'NSHM Knowledge Campus',
       location: 'Durgapur, West Bengal',
       period: '08/2024 – Present',
-      grade: 'CGPA: 7.37 (Sem 1–6)',
       details: [
         'Specialization in Data Science, Machine Learning, and Computational Statistics.',
         'Hands-on coursework in Python algorithms, database management, and deep neural networks.',

@@ -82,24 +82,7 @@ import { resumeData } from '../data/resume';
           </a>
         </div>
 
-        <!-- Metrics Row -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-5 border-t border-neutral-900">
-          {resumeData.about.stats.map((stat) => (
-            <div class="hero-stats-item flex flex-col text-left">
-              <span class="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
-                {stat.value}
-              </span>
-              <span class="text-xs text-neutral-400 font-medium mt-0.5">
-                {stat.label}
-              </span>
-              {stat.detail && (
-                <span class="text-[11px] text-neutral-500 font-mono mt-0.5">
-                  {stat.detail}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
+        <!-- Action buttons are above, removing the metrics row per user request -->
       </div>
 
       <!-- Right Column: Interactive Terminal Graphic -->
@@ -136,8 +119,7 @@ import { resumeData } from '../data/resume';
                 <span class="text-emerald-400 font-bold">cat education.txt</span>
               </div>
               <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800 text-[11px] sm:text-xs">
-                B.Tech in CSE (Data Science) @ NSHM Knowledge Campus<br/>
-                <span class="text-blue-400 font-semibold">CGPA: 7.37</span> (Sem 1–6)
+                B.Tech in CSE (Data Science) @ NSHM Knowledge Campus
               </p>
             </div>
 
