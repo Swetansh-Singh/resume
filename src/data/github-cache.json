@@ -20,7 +20,7 @@
     "description": "Deep learning and computer vision pipeline for early lesion classification and automated melanoma screening.",
     "stars": 0,
     "forks": 0,
-    "language": "TypeScript",
+    "language": "Python",
     "updatedAt": "2025-02-20T00:00:00Z",
     "topics": ["deep-learning", "computer-vision", "healthcare", "ai"],
     "homepage": ""

@@ -92,7 +92,9 @@ export async function getProjects(): Promise<ProjectItem[]> {
   // Merge with overrides
   const projects: ProjectItem[] = rawRepos.map(repo => {
     const override = overrides[repo.name] || {};
-    const tags = override.tags || (repo.topics?.length ? repo.topics : [repo.language].filter(Boolean));
+    const language = override.language || repo.language || 'Code';
+    const rawTags = override.tags || (repo.topics?.length ? repo.topics : [language].filter(Boolean));
+    const tags = rawTags.filter((t: string) => t.toLowerCase() !== language.toLowerCase());
 
     return {
       id: repo.id,
@@ -103,7 +105,7 @@ export async function getProjects(): Promise<ProjectItem[]> {
       description: override.description || repo.description || 'Personal engineering & data project.',
       stars: repo.stars || 0,
       forks: repo.forks || 0,
-      language: repo.language || 'Code',
+      language,
       updatedAt: repo.updatedAt,
       topics: repo.topics || [],
       homepage: repo.homepage || undefined,

@@ -28,13 +28,10 @@ import { resumeData } from '../data/resume';
           {resumeData.title}
         </p>
 
-        <!-- Description: Combined Bio & Experience Overview -->
+        <!-- Description -->
         <div class="hero-bio space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed mb-8 text-left">
           <p class="text-neutral-300">
             {resumeData.bio}
-          </p>
-          <p class="text-neutral-400">
-            My experience centers on practical data systems and applied machine learning: from building convolutional neural networks (CNNs) for medical lesion classification in TensorFlow/OpenCV, to deploying interactive, real-time analytics platforms in Streamlit.
           </p>
         </div>
 
@@ -101,51 +98,20 @@ import { resumeData } from '../data/resume';
 
           <!-- Terminal Content -->
           <div class="p-5 flex flex-col gap-4 text-neutral-300 leading-relaxed text-left">
-            <div>
-              <div class="flex items-center gap-2 text-neutral-400">
-                <span class="text-blue-400">➜</span>
-                <span class="text-neutral-500">~</span>
-                <span class="text-emerald-400 font-bold">whoami</span>
+            {resumeData.terminalCommands.map((item) => (
+              <div>
+                <div class="flex items-center gap-2 text-neutral-400">
+                  <span class="text-blue-400">➜</span>
+                  <span class="text-neutral-500">~</span>
+                  <span class="text-emerald-400 font-bold">{item.command}</span>
+                </div>
+                <div class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800 text-[11px] sm:text-xs space-y-1">
+                  {item.output.map((line) => (
+                    <p>{line}</p>
+                  ))}
+                </div>
               </div>
-              <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800 text-[11px] sm:text-xs">
-                Swetansh Singh — Python & Data Science Developer
-              </p>
-            </div>
-
-            <div>
-              <div class="flex items-center gap-2 text-neutral-400">
-                <span class="text-blue-400">➜</span>
-                <span class="text-neutral-500">~</span>
-                <span class="text-emerald-400 font-bold">cat education.txt</span>
-              </div>
-              <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800 text-[11px] sm:text-xs">
-                B.Tech in CSE (Data Science) @ NSHM Knowledge Campus
-              </p>
-            </div>
-
-            <div>
-              <div class="flex items-center gap-2 text-neutral-400">
-                <span class="text-blue-400">➜</span>
-                <span class="text-neutral-500">~</span>
-                <span class="text-emerald-400 font-bold">cat focus.txt</span>
-              </div>
-              <p class="text-neutral-300 mt-1 pl-4 border-l border-neutral-800 text-[11px] sm:text-xs">
-                • CNNs & Computer Vision (TensorFlow / OpenCV)<br/>
-                • Real-time KPI Dashboards (Streamlit & Plotly)<br/>
-                • Exploratory Data Analysis & Feature Engineering
-              </p>
-            </div>
-
-            <div>
-              <div class="flex items-center gap-2 text-neutral-400">
-                <span class="text-blue-400">➜</span>
-                <span class="text-neutral-500">~</span>
-                <span class="text-emerald-400 font-bold">git status</span>
-              </div>
-              <div class="text-neutral-400 mt-1 pl-4 border-l border-neutral-800 text-[11px]">
-                <span class="text-emerald-400">✔</span> On branch <span class="text-blue-400">main</span> • Ready for opportunities
-              </div>
-            </div>
+            ))}
 
             <!-- Blinking cursor -->
             <div class="flex items-center gap-2 text-neutral-400 pt-1">

@@ -1,6 +1,7 @@
 export interface ProjectOverride {
   title?: string;
   description?: string;
+  language?: string;
   featured?: boolean;
   demoUrl?: string;
   tags?: string[];
@@ -13,9 +14,9 @@ export const projectsConfig = {
   overrides: {
     'Skin-Cancer-Detection': {
       title: 'Skin Cancer Detection & Lesion Classifier',
-      description: 'Convolutional neural network (CNN) trained with TensorFlow/Keras and OpenCV to classify dermoscopic lesion images into malignant vs. benign categories with ROC-AUC validation.',
+      description: 'End-to-end computer vision pipeline for automated melanoma screening and early dermatological lesion classification.',
+      language: 'Python',
       featured: true,
-      demoUrl: 'https://github.com/Swetansh-Singh/Skin-Cancer-Detection',
       tags: ['TensorFlow', 'OpenCV', 'Scikit-Learn', 'CNN', 'Computer Vision'],
       highlights: [
         'Built a CNN to classify lesion images into malignant vs. benign with ROC-AUC validation',
@@ -24,10 +25,10 @@ export const projectsConfig = {
     },
     'Sales-Analysis-streamlitapp': {
       title: 'Sales Analysis Interactive Dashboard',
-      description: 'Deployed a real-time sales tracking web app with dynamic multi-filter KPI dashboards, interactive charts, and accelerated query transformations.',
+      description: 'Self-service business intelligence web app that turns raw CSV exports into instant visual insights without SQL or pivot tables.',
+      language: 'Python',
       featured: true,
-      demoUrl: 'https://github.com/Swetansh-Singh/Sales-Analysis-streamlitapp',
-      tags: ['Streamlit', 'Plotly', 'Pandas', 'Python', 'KPI Dashboards'],
+      tags: ['Streamlit', 'Plotly', 'Pandas', 'KPI Dashboards'],
       highlights: [
         'Deployed a real-time sales tracking web app with dynamic multi-filter KPI dashboards',
         'Optimized data-caching to accelerate chart rendering and large dataset queries',
@@ -35,9 +36,8 @@ export const projectsConfig = {
     },
     'Amazon-Sales-EDA': {
       title: 'Amazon Sales Analysis & Forecasting',
-      description: 'Granular exploratory data analysis on transaction records to isolate peak demand and margin trends, with currency normalization and delivery bottleneck diagnosis.',
+      description: 'E-commerce fulfillment and revenue study uncovering regional purchasing patterns and logistics bottlenecks.',
       featured: false,
-      demoUrl: 'https://github.com/Swetansh-Singh/Amazon-Sales-EDA',
       tags: ['Pandas', 'Matplotlib', 'Seaborn', 'EDA', 'Forecasting'],
       highlights: [
         'Performed EDA on transaction records to isolate peak demand and margin trends',
@@ -46,10 +46,9 @@ export const projectsConfig = {
     },
     'Netflix-EDA': {
       title: 'Netflix Content Strategy & Catalog EDA',
-      description: 'Comprehensive evaluation of streaming catalog metadata to analyze shifting trends between TV shows and movies, production volume, and runtime distributions.',
+      description: 'Global streaming catalog study tracking content acquisition strategy, genre evolution, and regional production.',
       featured: false,
-      demoUrl: 'https://github.com/Swetansh-Singh/Netflix-EDA',
-      tags: ['Pandas', 'Seaborn', 'Matplotlib', 'EDA', 'Python'],
+      tags: ['Pandas', 'Seaborn', 'Matplotlib', 'EDA'],
       highlights: [
         'Analyzed catalog metadata to evaluate shifting trends between TV shows and movies',
         'Visualized country-wise production volume and runtime distributions across genres',
